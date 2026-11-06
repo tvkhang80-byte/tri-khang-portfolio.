@@ -1,107 +1,26 @@
 <!doctype html>
-<html lang="vi">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Portfolio cá nhân của Trí Khang" />
-    <title>Trí Khang — Góc nhỏ của mình</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
-    <style>
-      :root { --ink:#263b32; --muted:#63746b; --cream:#f8f4ec; --paper:#fffdfa; --sage:#dce8d8; --leaf:#3e725c; --rose:#f0dcd2; --sun:#f5e3a8; --line:rgba(38,59,50,.13); }
-      * { box-sizing:border-box; }
-      html { scroll-behavior:smooth; }
-      body { margin:0; background:var(--cream); color:var(--ink); font-family:"Be Vietnam Pro",sans-serif; line-height:1.65; }
-      a { color:inherit; text-decoration:none; }
-      .shell { width:min(1120px, calc(100% - 40px)); margin:auto; }
-      .topbar { background:#ecf3e8; border-bottom:1px solid var(--line); font-size:.77rem; letter-spacing:.05em; padding:8px 0; color:var(--muted); }
-      header { display:flex; align-items:center; justify-content:space-between; min-height:82px; gap:18px; }
-      .brand { font-family:"DM Serif Display",serif; font-size:1.35rem; letter-spacing:.01em; }
-      .brand span { color:var(--leaf); }
-      nav { display:flex; gap:20px; font-size:.84rem; color:var(--muted); }
-      nav a:hover { color:var(--leaf); }
-      .hero { display:grid; grid-template-columns:1.35fr .75fr; align-items:center; gap:64px; padding:76px 0 62px; }
-      .eyebrow { display:block; color:var(--leaf); font-size:.74rem; letter-spacing:.12em; font-weight:700; text-transform:uppercase; margin-bottom:15px; }
-      h1,h2,h3,p { margin-top:0; }
-      h1,h2,h3 { font-family:"DM Serif Display",serif; line-height:1.08; font-weight:400; }
-      h1 { font-size:clamp(3rem,6vw,5.2rem); letter-spacing:-.035em; margin-bottom:24px; }
-      h1 em { color:var(--leaf); font-style:italic; }
-      .intro { max-width:590px; color:var(--muted); font-size:1.02rem; }
-      .actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:29px; }
-      .button { padding:12px 19px; border-radius:999px; font-size:.86rem; font-weight:600; transition:.2s ease; }
-      .button.primary { color:white; background:var(--leaf); box-shadow:0 8px 18px rgba(62,114,92,.18); }
-      .button.secondary { border:1px solid var(--line); background:rgba(255,255,255,.6); }
-      .button:hover { transform:translateY(-2px); }
-      .portrait { background:var(--sage); border-radius:48% 48% 42% 42%; aspect-ratio:.85; position:relative; overflow:hidden; display:grid; place-items:center; }
-      .portrait::before { content:"✿"; position:absolute; right:11%; top:11%; font-size:4.7rem; color:rgba(255,255,255,.7); }
-      .portrait::after { content:"ẢNH\A CỦA BẠN"; white-space:pre; text-align:center; border:1px dashed rgba(38,59,50,.28); padding:31px 22px; border-radius:50%; color:var(--leaf); font-size:.75rem; letter-spacing:.12em; line-height:1.8; }
-      .status { background:var(--paper); padding:25px 30px; border:1px solid var(--line); border-radius:23px; box-shadow:0 14px 34px rgba(61,72,52,.06); display:grid; grid-template-columns:auto 1fr; gap:17px; align-items:start; }
-      .status .icon { display:grid; place-items:center; width:48px; height:48px; border-radius:16px; background:var(--rose); font-size:1.4rem; }
-      .status h2 { font-size:1.65rem; margin-bottom:8px; }
-      .status p { color:var(--muted); margin:0; font-size:.9rem; }
-      section { padding:94px 0; }
-      .section-head { max-width:600px; margin-bottom:38px; }
-      h2 { font-size:clamp(2.2rem,4vw,3.5rem); letter-spacing:-.025em; margin-bottom:15px; }
-      .section-head p { color:var(--muted); margin-bottom:0; }
-      .cards { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
-      .card { background:var(--paper); padding:28px; border:1px solid var(--line); border-radius:22px; transition:transform .2s ease,box-shadow .2s ease; }
-      .card:hover { transform:translateY(-5px); box-shadow:0 15px 30px rgba(61,72,52,.08); }
-      .card .symbol { font-size:1.65rem; width:47px; height:47px; display:grid; place-items:center; border-radius:15px; background:var(--sun); margin-bottom:22px; }
-      .card:nth-child(2) .symbol { background:var(--rose); }
-      .card:nth-child(3) .symbol { background:var(--sage); }
-      .card h3 { font-size:1.4rem; margin-bottom:11px; }
-      .card p { color:var(--muted); font-size:.9rem; margin-bottom:0; }
-      .about-grid { display:grid; grid-template-columns:1.15fr .85fr; gap:34px; }
-      .about-copy { background:var(--sage); border-radius:28px; padding:42px; }
-      .about-copy h3 { font-size:2rem; margin-bottom:17px; }
-      .about-copy p { color:#52665c; }
-      .tags { display:flex; flex-wrap:wrap; gap:9px; margin-top:25px; }
-      .tag { font-size:.78rem; background:rgba(255,255,255,.65); border:1px solid rgba(38,59,50,.12); padding:7px 11px; border-radius:999px; }
-      .skills { padding:35px; border:1px solid var(--line); border-radius:28px; background:var(--paper); }
-      .skills h3 { font-size:1.7rem; }
-      .skill { margin-top:20px; }
-      .skill-top { display:flex; justify-content:space-between; font-size:.87rem; margin-bottom:8px; }
-      .meter { height:8px; background:#edf0ea; border-radius:99px; overflow:hidden; }
-      .meter i { display:block; height:100%; border-radius:inherit; background:var(--leaf); }
-      .projects { display:grid; grid-template-columns:repeat(2,1fr); gap:20px; }
-      .project { min-height:280px; border-radius:26px; padding:31px; display:flex; flex-direction:column; justify-content:space-between; background:var(--paper); border:1px solid var(--line); }
-      .project:first-child { background:#e6efe1; }
-      .project .type { color:var(--leaf); letter-spacing:.1em; font-size:.72rem; font-weight:700; }
-      .project h3 { font-size:2rem; margin:15px 0 12px; }
-      .project p { color:var(--muted); font-size:.9rem; margin-bottom:0; }
-      .project .link { font-weight:600; font-size:.85rem; margin-top:25px; }
-      .quote { text-align:center; padding:73px 20px; background:var(--rose); }
-      .quote blockquote { max-width:760px; margin:0 auto; font:italic clamp(2rem,4vw,3.2rem)/1.18 "DM Serif Display",serif; }
-      .contact { text-align:center; padding:100px 0; }
-      .contact p { color:var(--muted); max-width:460px; margin:0 auto 25px; }
-      footer { border-top:1px solid var(--line); text-align:center; padding:25px; color:var(--muted); font-size:.78rem; }
-      @media (max-width:760px) { .shell { width:min(100% - 28px, 1120px); } header { min-height:68px; } nav { display:none; } .hero,.about-grid { grid-template-columns:1fr; gap:32px; padding:48px 0; } .portrait { max-width:310px; width:80%; justify-self:center; } section { padding:64px 0; } .cards,.projects { grid-template-columns:1fr; } .about-copy,.skills { padding:28px; } .status { padding:21px; } }
-    </style>
-  </head>
-  <body>
-    <div class="topbar"><div class="shell">✦ Một góc nhỏ trên Internet, dành cho những điều mình yêu thích</div></div>
-    <header class="shell">
-      <a class="brand" href="#home"><span>✿</span> Trí Khang</a>
-      <nav aria-label="Điều hướng chính"><a href="#about">Về mình</a><a href="#interests">Sở thích</a><a href="#skills">Kỹ năng</a><a href="#projects">Dự án</a><a href="#contact">Liên hệ</a></nav>
-    </header>
-    <main>
-      <section class="shell hero" id="home">
-        <div>
-          <span class="eyebrow">Xin chào, rất vui được gặp bạn</span>
-          <h1>Mình là <em>Trí Khang</em>.<br />Cùng kết nối những hành trình.</h1>
-          <p class="intro">Mình là sinh viên Logistics, thích biến những kế hoạch phức tạp thành quy trình rõ ràng và hiệu quả. Đây là nơi mình lưu lại những điều đang học, những dự án đang làm và hành trình trở thành một người làm logistics đáng tin cậy.</p>
-          <div class="actions"><a class="button primary" href="#about">Tìm hiểu về mình ↗</a><a class="button secondary" href="#projects">Xem dự án của mình</a></div>
-        </div>
-        <div class="portrait" aria-label="Vị trí đặt ảnh chân dung của Trí Khang"></div>
-      </section>
-      <div class="shell status"><div class="icon">☀</div><div><h2>Một phiên bản đang lớn lên</h2><p>Sinh viên Logistics · Người yêu sự ngăn nắp · Đang học: quản lý chuỗi cung ứng, tiếng Anh và phân tích dữ liệu</p></div></div>
-      <section class="shell" id="interests"><div class="section-head"><span class="eyebrow">Những điều mình thích</span><h2>Một vài điều khiến mình thấy vui</h2><p>Mỗi sở thích là một mảnh nhỏ tạo nên con người mình hôm nay.</p></div><div class="cards"><article class="card"><div class="symbol">✓</div><h3>Sắp xếp & lập kế hoạch</h3><p>Mình thích chia một mục tiêu lớn thành những bước nhỏ, để mọi việc đi đúng hướng mà vẫn có không gian để linh hoạt.</p></article><article class="card"><div class="symbol">⌁</div><h3>Tìm hiểu cách mọi thứ vận hành</h3><p>Từ hành trình của một đơn hàng đến chuỗi cung ứng phía sau nó, mình luôn tò mò về cách các mảnh ghép kết nối với nhau.</p></article><article class="card"><div class="symbol">☕</div><h3>Học tập có nhịp điệu</h3><p>Mình thường bắt đầu ngày mới bằng việc ghi ba ưu tiên, học theo từng phiên ngắn tập trung và dành cuối ngày để nhìn lại điều đã làm được.</p></article></div></section>
-      <section class="shell" id="about"><div class="section-head"><span class="eyebrow">Vài điều về mình</span><h2>Câu chuyện của mình, đến hiện tại</h2></div><div class="about-grid"><article class="about-copy"><h3>Xin chào, mình là Trí Khang.</h3><p>Mình theo học chuyên ngành Logistics tại Trường Đại học Công Thương Thành phố Hồ Chí Minh (HUIT) và hứng thú với cách hàng hóa, thông tin và con người có thể gặp nhau đúng lúc. Mình tin một quy trình tốt không chỉ giúp công việc hiệu quả hơn, mà còn tạo ra sự tin cậy trong mỗi lần hợp tác.</p><p>Để học tốt hơn, mình thường lên kế hoạch tuần vào tối Chủ nhật, chia bài học thành các phiên 45 phút và ghi lại một điều mới sau mỗi ngày. Trang này là lát cắt nhỏ của hành trình mình đang đi.</p><div class="tags"><span class="tag">Tỉ mỉ</span><span class="tag">Chủ động</span><span class="tag">Luôn học hỏi</span></div></article><aside class="skills" id="skills"><h3>Những điều mình đang rèn luyện</h3><div class="skill"><div class="skill-top"><span>Tổ chức & lập kế hoạch</span><span>Đang phát triển</span></div><div class="meter"><i style="width:78%"></i></div></div><div class="skill"><div class="skill-top"><span>Tiếng Anh chuyên ngành</span><span>Đang học</span></div><div class="meter"><i style="width:64%"></i></div></div><div class="skill"><div class="skill-top"><span>Excel & phân tích dữ liệu</span><span>Đang thực hành</span></div><div class="meter"><i style="width:70%"></i></div></div></aside></div></section>
-      <section class="shell" id="projects"><div class="section-head"><span class="eyebrow">Những điều mình đã làm</span><h2>Dự án & những cột mốc nhỏ</h2><p>Những trải nghiệm đầu tiên giúp mình hiểu logistics gần hơn qua công việc thực tế.</p></div><div class="projects"><article class="project"><div><span class="type">BÀI TẬP HỌC PHẦN · 2026</span><h3>Hành trình của một đơn hàng</h3><p>Một dự án mô phỏng quy trình từ khi nhận đơn đến giao hàng, tập trung vào việc nhận diện điểm chậm và đề xuất cách phối hợp hiệu quả hơn giữa các khâu.</p></div><a class="link" href="#contact">Xem thêm ↗</a></article><article class="project"><div><span class="type">MỤC TIÊU CÁ NHÂN · ĐANG THỰC HIỆN</span><h3>Xây nền tảng logistics vững chắc</h3><p>Mình đang rèn luyện Excel, tiếng Anh chuyên ngành và kiến thức chuỗi cung ứng, từng bước để sẵn sàng cho những trải nghiệm thực tập đầu tiên.</p></div><a class="link" href="#contact">Cùng kết nối ↗</a></article></div></section>
-      <div class="quote"><blockquote>“Mỗi ngày tiến thêm một chút vẫn là một kiểu tiến bộ thật đẹp.”</blockquote></div>
-      <section class="shell contact" id="contact"><span class="eyebrow">Kết nối với mình</span><h2>Mình rất vui khi được chào bạn.</h2><p>Cảm ơn bạn đã ghé qua. Nếu muốn trao đổi về logistics, việc học hoặc một ý tưởng mới, hãy để lại một lời nhắn nhé.</p><a class="button primary" href="mailto:tvkhang80@gmail.com">Gửi email cho mình ↗</a></section>
-    </main>
-    <footer>Được làm bằng sự chăm chút bởi Trí Khang · © 2026</footer>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Trí Khang's personal portfolio"><title>Trí Khang — Personal Workbench</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Serif+Display:ital@0;1&family=Noto+Sans+SC:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root{--ink:#172d28;--muted:#64726b;--paper:#fffdf8;--base:#f5f1e8;--leaf:#3c705b;--lime:#dcebd7;--peach:#f2dfd0;--yellow:#f7e6a8;--line:#d9dfd5}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--base);color:var(--ink);font-family:"DM Mono","Noto Sans SC",monospace;line-height:1.65}a{color:inherit;text-decoration:none}.wrap{max-width:1120px;width:calc(100% - 40px);margin:auto}.topline{font-size:11px;letter-spacing:.08em;color:var(--muted);padding:10px 0;border-bottom:1px solid var(--line)}header{height:76px;display:flex;align-items:center;justify-content:space-between}.logo{font:24px "DM Serif Display",serif}.logo b{color:var(--leaf);font-weight:400}nav{display:flex;gap:20px;font-size:11px}nav a:hover{color:var(--leaf)}.hero{padding:74px 0 45px;display:grid;grid-template-columns:1.2fr .8fr;gap:55px;align-items:center}.label{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--leaf);font-weight:500}.en-title{font:clamp(48px,6vw,80px)/.98 "DM Serif Display",serif;letter-spacing:-.045em;margin:17px 0 14px}.en-title em{color:var(--leaf)}.zh-title{font:500 22px/1.4 "Noto Sans SC",sans-serif;margin:0 0 22px;color:#455a50}.copy{max-width:610px;font-size:13px;color:var(--muted);margin:0}.zh-copy{font:14px/1.8 "Noto Sans SC",sans-serif;color:#79857e;margin:8px 0 0}.buttons{display:flex;gap:10px;margin-top:27px;flex-wrap:wrap}.button{font-size:11px;padding:12px 16px;border-radius:4px;border:1px solid var(--ink)}.button.fill{background:var(--ink);color:white}.button:hover{transform:translateY(-2px)}.portrait{min-height:385px;background:var(--lime);border-radius:180px 180px 25px 25px;position:relative;display:grid;place-items:center;overflow:hidden}.portrait:before{content:"✦";position:absolute;top:26px;right:38px;font-size:72px;color:#ffffffa8}.photo-note{border:1px dashed #527463;padding:36px 22px;border-radius:100%;font-size:10px;letter-spacing:.12em;color:var(--leaf);text-align:center}.now{background:var(--paper);border:1px solid var(--line);display:grid;grid-template-columns:74px 1fr auto;align-items:center;padding:20px 26px;gap:18px}.now-icon{height:52px;width:52px;border-radius:50%;display:grid;place-items:center;background:var(--peach);font-size:21px}.now h2{font:25px "DM Serif Display",serif;margin:0}.now p{font-size:11px;color:var(--muted);margin:4px 0 0}.stamp{font-size:10px;border:1px solid var(--line);padding:8px;line-height:1.25;text-align:center;color:var(--leaf)}section{padding:92px 0}.section-head{display:grid;grid-template-columns:180px 1fr;gap:30px;margin-bottom:32px}.section-head h2{font:clamp(35px,4vw,52px)/1 "DM Serif Display",serif;margin:0;letter-spacing:-.03em}.section-head .zh-title{font-size:18px;margin:7px 0 0}.interest-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.interest{padding:25px;border:1px solid var(--line);background:var(--paper);min-height:245px}.interest:nth-child(2){background:var(--peach)}.interest:nth-child(3){background:var(--lime)}.symbol{font-size:27px}.interest h3,.project h3{font:25px "DM Serif Display",serif;margin:50px 0 7px}.interest p,.project p{font-size:11px;color:var(--muted);margin:0}.interest .zh-copy,.project .zh-copy{font-size:12px}.story{display:grid;grid-template-columns:1.1fr .9fr;gap:18px}.bio{background:var(--ink);color:white;padding:42px}.bio h2{font:42px/1.03 "DM Serif Display",serif;margin:15px 0}.bio p{font-size:12px;color:#d6e1d9}.bio .zh-copy{color:#a8b9af}.facts{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}.fact{background:var(--paper);padding:24px}.fact b{font:25px "DM Serif Display",serif}.fact span{display:block;font-size:10px;color:var(--muted);margin-top:4px}.fact i{display:block;font:12px "Noto Sans SC",sans-serif;color:#849087;margin-top:4px;font-style:normal}.skills{padding:24px;background:var(--yellow);border:1px solid #e8d794}.skill{padding:15px 0;border-bottom:1px solid #d6c67f}.skill:last-child{border:0}.skill-top{display:flex;justify-content:space-between;font-size:11px}.skill-top span:last-child{color:#7c6a29}.bar{height:5px;background:#fff4cc;margin-top:9px}.bar i{display:block;background:var(--leaf);height:100%}.projects{display:grid;grid-template-columns:1fr 1fr;gap:18px}.project{border:1px solid var(--line);padding:32px;background:var(--paper);min-height:320px;display:flex;flex-direction:column}.project:first-child{background:#e5eee0}.project h3{font-size:34px;margin:63px 0 12px}.project .more{margin-top:auto;font-size:11px;color:var(--leaf);font-weight:500}.quote{padding:90px 20px;text-align:center;background:var(--peach)}blockquote{max-width:820px;margin:auto;font:italic clamp(34px,5vw,57px)/1.15 "DM Serif Display",serif}.quote p{font:14px "Noto Sans SC",sans-serif;color:#6d625a;margin:13px 0 0}.contact{text-align:center;padding:106px 0}.contact h2{font:clamp(46px,5vw,64px)/1 "DM Serif Display",serif;margin:14px 0}.contact .copy{margin:auto}.contact .zh-copy{margin:8px auto 0}footer{border-top:1px solid var(--line);padding:22px;text-align:center;font-size:10px;color:var(--muted)}@media(max-width:720px){.wrap{width:calc(100% - 28px)}nav{display:none}.hero,.story{grid-template-columns:1fr;gap:28px;padding-top:45px}.portrait{max-width:320px;width:84%;min-height:330px;margin:auto}.now{grid-template-columns:55px 1fr;padding:18px}.stamp{display:none}.section-head{grid-template-columns:1fr;gap:10px}.interest-grid,.projects{grid-template-columns:1fr}.interest{min-height:210px}.facts{grid-template-columns:1fr 1fr}section{padding:63px 0}.bio{padding:31px}}
+  </style>
+</head>
+<body>
+  <div class="topline"><div class="wrap">A SMALL CORNER OF THE INTERNET · 属于我的小角落</div></div>
+  <header class="wrap"><a class="logo" href="#home"><b>✦</b> Trí Khang</a><nav><a href="#about">About · 关于我</a><a href="#interests">Interests · 兴趣</a><a href="#skills">Skills · 技能</a><a href="#projects">Projects · 项目</a><a href="#contact">Contact · 联系我</a></nav></header>
+  <main>
+    <section class="wrap hero" id="home"><div><span class="label">Personal workbench · 个人工作台</span><h1 class="en-title">Hi, I'm <em>Trí Khang.</em><br>I connect the moving pieces.</h1><p class="zh-title">你好，我是 Trí Khang。<br>我喜欢让每一个环节顺利连接。</p><p class="copy">I'm a Logistics student who enjoys turning complex plans into clear, dependable flows. This is a space for what I am learning, building, and becoming.</p><p class="zh-copy">我是一名物流专业的学生，喜欢把复杂的计划变成清晰、可靠的流程。这里记录着我的学习、创造与成长。</p><div class="buttons"><a class="button fill" href="#about">Get to know me · 了解我</a><a class="button" href="#projects">View my work · 查看项目</a></div></div><div class="portrait"><div class="photo-note">YOUR<br>PHOTO<br>你的照片</div></div></section>
+    <div class="wrap now"><div class="now-icon">☀</div><div><h2>A work in progress</h2><p>Logistics student · Detail-oriented · Always learning</p><p class="zh-copy">物流专业学生 · 注重细节 · 持续学习</p></div><div class="stamp">HUIT<br>2026</div></div>
+    <section class="wrap" id="interests"><div class="section-head"><span class="label">Things I enjoy · 我的兴趣</span><div><h2>Little things that keep me curious</h2><p class="zh-title">让我保持好奇心的小事</p></div></div><div class="interest-grid"><article class="interest"><div class="symbol">✓</div><h3>Plans with purpose</h3><p>I like breaking a big goal into small, practical steps.</p><p class="zh-copy">我喜欢把大目标拆分为清晰、可执行的小步骤。</p></article><article class="interest"><div class="symbol">⌁</div><h3>How things move</h3><p>From an order to its destination, I enjoy learning how every link works together.</p><p class="zh-copy">从订单到目的地，我喜欢理解每个环节如何彼此协作。</p></article><article class="interest"><div class="symbol">☕</div><h3>Learning in rhythm</h3><p>A simple plan, focused study sessions, and a daily reflection keep me grounded.</p><p class="zh-copy">简单的计划、专注的学习和每天的复盘，让我保持节奏。</p></article></div></section>
+    <section class="wrap" id="about"><div class="section-head"><span class="label">A little introduction · 自我介绍</span><div><h2>My story so far</h2><p class="zh-title">到目前为止的我</p></div></div><div class="story"><article class="bio"><span class="label" style="color:#c4dbcd">Hello · 你好</span><h2>I'm learning to make every connection count.</h2><p>I study Logistics at Ho Chi Minh City University of Industry and Trade (HUIT). I am interested in how goods, information, and people can arrive at the right place at the right time.</p><p class="zh-copy">我在胡志明市工业与贸易大学（HUIT）学习物流专业。我对货物、信息和人如何在恰当的时间到达恰当的位置很感兴趣。</p></article><div><div class="facts"><div class="fact"><b>01</b><span>Field</span><i>物流专业 · Logistics</i></div><div class="fact"><b>02</b><span>Approach</span><i>细心 · Detail-oriented</i></div><div class="fact"><b>03</b><span>Habit</span><i>每周计划 · Weekly planning</i></div><div class="fact"><b>04</b><span>Goal</span><i>持续成长 · Keep growing</i></div></div><div class="skills" id="skills"><span class="label">Growing skills · 正在提升的能力</span><div class="skill"><div class="skill-top"><span>Planning & organisation · 计划与组织</span><span>78%</span></div><div class="bar"><i style="width:78%"></i></div></div><div class="skill"><div class="skill-top"><span>English for Logistics · 物流英语</span><span>64%</span></div><div class="bar"><i style="width:64%"></i></div></div><div class="skill"><div class="skill-top"><span>Excel & data analysis · 数据分析</span><span>70%</span></div><div class="bar"><i style="width:70%"></i></div></div></div></div></div></section>
+    <section class="wrap" id="projects"><div class="section-head"><span class="label">Selected work · 我的项目</span><div><h2>Projects & small wins</h2><p class="zh-title">项目与小小的收获</p></div></div><div class="projects"><article class="project"><span class="label">Course project · 课程项目 · 2026</span><h3>The journey of an order</h3><p>I mapped the flow from receiving an order to delivery, then identified bottlenecks and ways to improve coordination.</p><p class="zh-copy">我梳理了从接单到配送的流程，并识别可能的瓶颈和协作优化方式。</p><a class="more" href="#contact">Learn more · 了解更多 ↗</a></article><article class="project"><span class="label">Personal goal · 个人目标 · In progress</span><h3>Building a solid logistics foundation</h3><p>I am strengthening my Excel, logistics English, and supply-chain knowledge for my first internship experience.</p><p class="zh-copy">我正在提升 Excel、物流英语和供应链知识，为第一次实习做好准备。</p><a class="more" href="#contact">Let's connect · 欢迎联系 ↗</a></article></div></section>
+    <div class="quote"><blockquote>“Small progress, repeated every day, becomes a meaningful journey.”</blockquote><p>每天一点点进步，也能成为一段有意义的旅程。</p></div>
+    <section class="wrap contact" id="contact"><span class="label">Say hello · 来打个招呼</span><h2>Let's make a connection.</h2><p class="zh-title">期待与你建立联系。</p><p class="copy">Feel free to reach out if you would like to talk about logistics, learning, or a new idea.</p><p class="zh-copy">如果你想聊聊物流、学习或新想法，欢迎随时联系我。</p><div class="buttons" style="justify-content:center"><a class="button fill" href="mailto:tvkhang80@gmail.com">Email me · 给我发邮件 ↗</a></div></section>
+  </main>
+  <footer>MADE WITH CARE BY TRÍ KHANG · 用心制作 · © 2026</footer>
+</body>
 </html>
